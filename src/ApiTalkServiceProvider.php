@@ -2,9 +2,9 @@
 
 namespace PocketNinja\ApiTalk;
 
+use PocketNinja\ApiTalk\Commands\ApiTalkCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use PocketNinja\ApiTalk\Commands\ApiTalkCommand;
 
 class ApiTalkServiceProvider extends PackageServiceProvider
 {
