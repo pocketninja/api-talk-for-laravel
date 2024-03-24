@@ -8,7 +8,7 @@ class ApiTalk
     {
         $config = config('api-talk.apis.'.$apiName);
 
-        if (empty($config) || !is_array($config)) {
+        if (empty($config) || ! is_array($config)) {
             throw new \InvalidArgumentException(
                 sprintf('API with name "%s" not found.', $apiName)
             );
