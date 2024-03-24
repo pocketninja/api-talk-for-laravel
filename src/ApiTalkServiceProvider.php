@@ -4,7 +4,6 @@ namespace PocketNinja\ApiTalk;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use PocketNinja\ApiTalk\Commands\ApiTalkCommand;
 
 class ApiTalkServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +16,16 @@ class ApiTalkServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('api-talk-for-laravel')
-            ->hasConfigFile()
+            ->hasConfigFile('api-talk')
             ->hasViews()
-            ->hasMigration('create_api-talk-for-laravel_table')
-            ->hasCommand(ApiTalkCommand::class);
+            ->hasMigration('create_api-talk-for-laravel_table');
+            //            ->hasCommand(ApiTalkCommand::class)
+    }
+
+    public function register()
+    {
+        parent::register();
+        require __DIR__.'/helpers.php';
+        $this->app->singleton(ApiTalk::class, ApiTalk::class);
     }
 }
