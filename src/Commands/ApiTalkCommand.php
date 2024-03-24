@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace PocketNinja\ApiTalk\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ApiTalkCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'api-talk-for-laravel';
 
     public $description = 'My command';
 
