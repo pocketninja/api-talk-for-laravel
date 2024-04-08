@@ -7,7 +7,6 @@ interface RequestBuilder
     /**
      * Sets the client to perform the request with.
      *
-     * @param  Client  $client
      * @return $this
      */
     public function withClient(Client $client): static;
@@ -15,7 +14,6 @@ interface RequestBuilder
     /**
      * Create a get request, with the path to the data in the response.
      *
-     * @param  string  $path
      *
      * @return $this
      */
@@ -24,7 +22,6 @@ interface RequestBuilder
     /**
      * Create a post request with a body of data.
      *
-     * @param  array  $data
      * @return $this
      */
     public function post(array $data): static;

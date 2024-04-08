@@ -8,7 +8,6 @@ use PocketNinja\ApiTalk\Traits\BuildsRequestsFromVerbs;
 
 class BasicClient implements Client
 {
-
     use BuildsRequestsFromVerbs;
 
     public function __construct(
@@ -20,5 +19,4 @@ class BasicClient implements Client
     {
         return new static($config->url);
     }
-
 }

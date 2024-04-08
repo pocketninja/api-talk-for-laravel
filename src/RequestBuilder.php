@@ -7,12 +7,12 @@ use PocketNinja\ApiTalk\Contracts\RequestBuilder as RequestBuilderContract;
 
 class RequestBuilder implements RequestBuilderContract
 {
-
     protected Client $client;
 
     public function withClient(Client $client): static
     {
         $this->client = $client;
+
         return $this;
     }
 

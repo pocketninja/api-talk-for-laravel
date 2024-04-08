@@ -24,5 +24,4 @@ trait BuildsRequestsFromVerbs
     {
         return static::makeBuilder()->withClient($this)->post($data);
     }
-
 }
