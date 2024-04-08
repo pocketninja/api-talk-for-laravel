@@ -16,7 +16,7 @@ class ApiTalkServiceProvider extends PackageServiceProvider
             ->hasConfigFile('api-talk')
             ->hasViews()
             ->hasMigration('create_api-talk-for-laravel_table');
-            //            ->hasCommand(ApiTalkCommand::class)
+        //            ->hasCommand(ApiTalkCommand::class)
     }
 
     public function register()

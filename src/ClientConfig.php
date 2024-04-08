@@ -23,7 +23,7 @@ class ClientConfig
 
         $implementations = class_implements($driver) ?: [];
 
-        if (!in_array(Contracts\Client::class, $implementations)) {
+        if (! in_array(Contracts\Client::class, $implementations)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     'API with name "%s" does not have a valid client type specified. A type should derive from PocketNinja\ApiTalk\Contracts\Client',

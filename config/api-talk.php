@@ -9,5 +9,5 @@ return [
         'bored-api' => [
             'url' => 'https://www.boredapi.com/api',
         ],
-    ]
+    ],
 ];
