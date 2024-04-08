@@ -3,6 +3,7 @@
 namespace PocketNinja\ApiTalk;
 
 use PocketNinja\ApiTalk\Commands\ApiTalkCommand;
+use PocketNinja\ApiTalk\Contracts\RequestBuilder as RequestBuilderContract;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -10,11 +11,6 @@ class ApiTalkServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
             ->name('api-talk-for-laravel')
             ->hasConfigFile('api-talk')
@@ -27,6 +23,7 @@ class ApiTalkServiceProvider extends PackageServiceProvider
     {
         parent::register();
         require __DIR__.'/helpers.php';
+        $this->app->bind(RequestBuilderContract::class, RequestBuilder::class);
         $this->app->singleton(ApiTalk::class, ApiTalk::class);
     }
 }

@@ -8,5 +8,5 @@ interface Client
 {
     public static function makeFromConfig(ClientConfig $config): Client;
 
-    public function get(string $endpoint);
+    public function get(string $path);
 }
