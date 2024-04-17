@@ -2,14 +2,16 @@
 
 namespace PocketNinja\ApiTalk;
 
-use PocketNinja\ApiTalk\Contracts\Client;
 use PocketNinja\ApiTalk\Contracts\BuildsRequests as RequestBuilderContract;
+use PocketNinja\ApiTalk\Contracts\Client;
 use PocketNinja\ApiTalk\Enums\Verb;
 
 class RequestBuilder implements RequestBuilderContract
 {
     protected Client $client;
+
     protected Verb $verb;
+
     protected array $data = [];
 
     public function withClient(Client $client): static
@@ -36,12 +38,14 @@ class RequestBuilder implements RequestBuilderContract
     public function with(array $data): static
     {
         $this->data = $data;
+
         return $this;
     }
 
     public function to(string $endpoint): Contracts\TransformedResponse
     {
         $this->verb->assertCanVerbTo();
+
         return $this->client->processRequest(app(Request::class, [
             'verb' => $this->verb,
             'path' => $endpoint,
@@ -52,6 +56,7 @@ class RequestBuilder implements RequestBuilderContract
     public function from(string $endpoint): Contracts\TransformedResponse
     {
         $this->verb->assertCanVerbFrom();
+
         return $this->client->processRequest(app(Request::class, [
             'verb' => $this->verb,
             'path' => $endpoint,
@@ -59,8 +64,8 @@ class RequestBuilder implements RequestBuilderContract
         ]));
     }
 
-//    public function transformResponseWith(ResponseTransformer $transformer): static
-//    {
-//        // TODO: Implement transformWith() method.
-//    }
+    //    public function transformResponseWith(ResponseTransformer $transformer): static
+    //    {
+    //        // TODO: Implement transformWith() method.
+    //    }
 }

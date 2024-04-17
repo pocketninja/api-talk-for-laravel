@@ -28,16 +28,17 @@ enum Verb
         };
     }
 
-    public function assertCanVerbTo(): void {
-        if (!$this->canVerbTo()) {
+    public function assertCanVerbTo(): void
+    {
+        if (! $this->canVerbTo()) {
             throw new IncompatibleVerb('GET and DELETE verbs are not supported for to() method');
         }
     }
 
-    public function assertCanVerbFrom(): void {
-        if (!$this->canVerbFrom()) {
+    public function assertCanVerbFrom(): void
+    {
+        if (! $this->canVerbFrom()) {
             throw new IncompatibleVerb('POST, PUT, and PATCH verbs are not supported for from() method');
         }
     }
-
 }

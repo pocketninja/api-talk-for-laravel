@@ -48,7 +48,7 @@ readonly class RemoteResponse implements TransformedResponse
         // @TODO Implement a much better approach to this. 🫠
         $xml = simplexml_load_string($xml);
         $json = json_encode($xml);
+
         return json_decode($json, true);
     }
-
 }

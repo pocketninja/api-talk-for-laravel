@@ -2,8 +2,8 @@
 
 namespace PocketNinja\ApiTalk\Concerns;
 
-use PocketNinja\ApiTalk\Contracts\Client;
 use PocketNinja\ApiTalk\Contracts\BuildsRequests;
+use PocketNinja\ApiTalk\Contracts\Client;
 
 /**
  * @mixin Client
@@ -29,5 +29,4 @@ trait BuildsRequestsFromVerbs
     {
         return static::makeBuilder()->withClient($this)->with($data);
     }
-
 }

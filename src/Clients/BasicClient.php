@@ -4,8 +4,8 @@ namespace PocketNinja\ApiTalk\Clients;
 
 use Illuminate\Support\Facades\Http;
 use PocketNinja\ApiTalk\ClientConfig;
-use PocketNinja\ApiTalk\Contracts\Client;
 use PocketNinja\ApiTalk\Concerns\BuildsRequestsFromVerbs;
+use PocketNinja\ApiTalk\Contracts\Client;
 use PocketNinja\ApiTalk\Contracts\TransformedResponse;
 use PocketNinja\ApiTalk\Enums\Verb;
 use PocketNinja\ApiTalk\Request;
