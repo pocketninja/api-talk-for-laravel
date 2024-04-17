@@ -4,11 +4,14 @@ namespace PocketNinja\ApiTalk;
 
 use PocketNinja\ApiTalk\Contracts\Client;
 use PocketNinja\ApiTalk\Contracts\BuildsRequests as RequestBuilderContract;
+use PocketNinja\ApiTalk\Enums\Verb;
+use PocketNinja\ApiTalk\Exceptions\IncompatibleVerb;
 
 class RequestBuilder implements RequestBuilderContract
 {
 
     protected Client $client;
+    protected Verb $verb;
 
     public function withClient(Client $client): static
     {
@@ -18,26 +21,26 @@ class RequestBuilder implements RequestBuilderContract
 
     public function get(): static
     {
-        // TODO: Implement get() method.
+        $this->verb = Verb::GET;
 
         return $this;
     }
 
     public function post(): static
     {
-        // TODO: Implement post() method.
+        $this->verb = Verb::POST;
 
         return $this;
     }
 
     public function to(string $endpoint): Contracts\TransformedResponse
     {
-        // TODO: Implement to() method.
+        $this->verb->assertCanVerbTo();
     }
 
     public function from(string $endpoint): Contracts\TransformedResponse
     {
-        // TODO: Implement from() method.
+        $this->verb->assertCanVerbFrom();
     }
 
     public function transformWith(string $transformerClass): static
