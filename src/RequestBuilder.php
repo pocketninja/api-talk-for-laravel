@@ -3,7 +3,7 @@
 namespace PocketNinja\ApiTalk;
 
 use PocketNinja\ApiTalk\Contracts\Client;
-use PocketNinja\ApiTalk\Contracts\RequestBuilder as RequestBuilderContract;
+use PocketNinja\ApiTalk\Contracts\BuildsRequests as RequestBuilderContract;
 
 class RequestBuilder implements RequestBuilderContract
 {
@@ -16,26 +16,26 @@ class RequestBuilder implements RequestBuilderContract
         return $this;
     }
 
-    public function get(string $path): static
+    public function get(): static
     {
         // TODO: Implement get() method.
 
         return $this;
     }
 
-    public function post(array $data): static
+    public function post(): static
     {
         // TODO: Implement post() method.
 
         return $this;
     }
 
-    public function to(string $endpoint): static
+    public function to(string $endpoint): Contracts\TransformedResponse
     {
         // TODO: Implement to() method.
     }
 
-    public function from(string $endpoint): static
+    public function from(string $endpoint): Contracts\TransformedResponse
     {
         // TODO: Implement from() method.
     }

@@ -3,7 +3,7 @@
 namespace PocketNinja\ApiTalk;
 
 use PocketNinja\ApiTalk\Commands\ApiTalkCommand;
-use PocketNinja\ApiTalk\Contracts\RequestBuilder as RequestBuilderContract;
+use PocketNinja\ApiTalk\Contracts\BuildsRequests as RequestBuilderContract;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

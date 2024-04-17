@@ -2,7 +2,7 @@
 
 namespace PocketNinja\ApiTalk\Contracts;
 
-interface RequestBuilder
+interface BuildsRequests extends ProvidesRequestBuilderFromVerbs
 {
     /**
      * Sets the client to perform the request with.
@@ -11,23 +11,6 @@ interface RequestBuilder
      * @return $this
      */
     public function withClient(Client $client): static;
-
-    /**
-     * Create a get request, with the path to the data in the response.
-     *
-     * @param  string  $path
-     *
-     * @return $this
-     */
-    public function get(string $path): static;
-
-    /**
-     * Create a post request with a body of data.
-     *
-     * @param  array  $data
-     * @return $this
-     */
-    public function post(array $data): static;
 
     public function transformWith(string $transformerClass): static;
 

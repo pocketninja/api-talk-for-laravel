@@ -4,9 +4,8 @@ namespace PocketNinja\ApiTalk\Contracts;
 
 use PocketNinja\ApiTalk\ClientConfig;
 
-interface Client
+interface Client extends ProvidesRequestBuilderFromVerbs
 {
     public static function makeFromConfig(ClientConfig $config): Client;
 
-    public function get(string $path);
 }
