@@ -36,11 +36,21 @@ class RequestBuilder implements RequestBuilderContract
     public function to(string $endpoint): Contracts\TransformedResponse
     {
         $this->verb->assertCanVerbTo();
+        return $this->client->processRequest(app(Request::class, [
+            'verb' => $this->verb,
+            'path' => $endpoint,
+            'endpoint' => $endpoint,
+        ]));
     }
 
     public function from(string $endpoint): Contracts\TransformedResponse
     {
         $this->verb->assertCanVerbFrom();
+        return $this->client->processRequest(app(Request::class, [
+            'verb' => $this->verb,
+            'path' => $endpoint,
+            'endpoint' => $endpoint,
+        ]));
     }
 
     public function transformWith(string $transformerClass): static

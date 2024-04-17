@@ -24,6 +24,7 @@ class ApiTalkServiceProvider extends PackageServiceProvider
         parent::register();
         require_once __DIR__.'/helpers.php';
         $this->app->bind(RequestBuilderContract::class, RequestBuilder::class);
+        $this->app->bind(Request::class, Request::class);
         $this->app->singleton(ApiTalk::class, ApiTalk::class);
     }
 }
