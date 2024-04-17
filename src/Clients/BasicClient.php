@@ -12,7 +12,6 @@ use PocketNinja\ApiTalk\Request;
 
 class BasicClient implements Client
 {
-
     use BuildsRequestsFromVerbs;
 
     public function __construct(

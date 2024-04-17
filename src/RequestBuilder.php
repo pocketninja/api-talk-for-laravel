@@ -8,7 +8,6 @@ use PocketNinja\ApiTalk\Enums\Verb;
 
 class RequestBuilder implements RequestBuilderContract
 {
-
     protected Client $client;
     protected Verb $verb;
     protected array $data = [];
@@ -16,6 +15,7 @@ class RequestBuilder implements RequestBuilderContract
     public function withClient(Client $client): static
     {
         $this->client = $client;
+
         return $this;
     }
 
