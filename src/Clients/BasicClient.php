@@ -43,5 +43,16 @@ class BasicClient implements Client
             Verb::PATCH => $pending->patch($url, $request->data),
             Verb::DELETE => $pending->delete($url, $request->data),
         };
+
+        return app(
+            TransformedResponse::class, [
+                'url' => $url,
+                'ok' => $response->ok(),
+                'code' => $response->status(),
+                'contentType' => $response->header('Content-Type'),
+                'originalBody' => $response->body(),
+                'headers' => $response->headers(),
+            ]
+        );
     }
 }

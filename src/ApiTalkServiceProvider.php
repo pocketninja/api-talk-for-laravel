@@ -2,8 +2,8 @@
 
 namespace PocketNinja\ApiTalk;
 
-use PocketNinja\ApiTalk\Commands\ApiTalkCommand;
 use PocketNinja\ApiTalk\Contracts\BuildsRequests as RequestBuilderContract;
+use PocketNinja\ApiTalk\Contracts\TransformedResponse;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -25,6 +25,7 @@ class ApiTalkServiceProvider extends PackageServiceProvider
         require_once __DIR__.'/helpers.php';
         $this->app->bind(RequestBuilderContract::class, RequestBuilder::class);
         $this->app->bind(Request::class, Request::class);
+        $this->app->bind(TransformedResponse::class, RemoteResponse::class);
         $this->app->singleton(ApiTalk::class, ApiTalk::class);
     }
 }

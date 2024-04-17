@@ -5,13 +5,13 @@ namespace PocketNinja\ApiTalk;
 use PocketNinja\ApiTalk\Contracts\Client;
 use PocketNinja\ApiTalk\Contracts\BuildsRequests as RequestBuilderContract;
 use PocketNinja\ApiTalk\Enums\Verb;
-use PocketNinja\ApiTalk\Exceptions\IncompatibleVerb;
 
 class RequestBuilder implements RequestBuilderContract
 {
 
     protected Client $client;
     protected Verb $verb;
+    protected array $data = [];
 
     public function withClient(Client $client): static
     {
@@ -33,13 +33,19 @@ class RequestBuilder implements RequestBuilderContract
         return $this;
     }
 
+    public function with(array $data): static
+    {
+        $this->data = $data;
+        return $this;
+    }
+
     public function to(string $endpoint): Contracts\TransformedResponse
     {
         $this->verb->assertCanVerbTo();
         return $this->client->processRequest(app(Request::class, [
             'verb' => $this->verb,
             'path' => $endpoint,
-            'endpoint' => $endpoint,
+            'data' => $this->data,
         ]));
     }
 
@@ -49,12 +55,12 @@ class RequestBuilder implements RequestBuilderContract
         return $this->client->processRequest(app(Request::class, [
             'verb' => $this->verb,
             'path' => $endpoint,
-            'endpoint' => $endpoint,
+            'data' => $this->data,
         ]));
     }
 
-    public function transformWith(string $transformerClass): static
-    {
-        // TODO: Implement transformWith() method.
-    }
+//    public function transformResponseWith(ResponseTransformer $transformer): static
+//    {
+//        // TODO: Implement transformWith() method.
+//    }
 }

@@ -25,4 +25,9 @@ trait BuildsRequestsFromVerbs
         return static::makeBuilder()->withClient($this)->post();
     }
 
+    public function with(array $data): BuildsRequests
+    {
+        return static::makeBuilder()->withClient($this)->with($data);
+    }
+
 }

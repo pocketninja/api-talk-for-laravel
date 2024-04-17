@@ -6,3 +6,16 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/pocketninja/api-talk-for-laravel.svg?style=flat-square)](https://packagist.org/packages/pocketninja/api-talk-for-laravel)
 
 ### Very early in-development. Not workable or usable at this time.
+
+
+### Samples
+
+```php
+// A random cat fact
+apiTalk('cat-facts')->get()->from('fact');
+// Get 5 facts.
+apiTalk('cat-facts')->get()->with([
+    'limit' => 5,
+])->from('facts');
+
+```
